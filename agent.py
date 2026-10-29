@@ -52,7 +52,6 @@ print("Spawning Llama 3.2 agent...")
 # 3. Update saved state for next time
 save_current_weather(live_weather)
 
-# 4. Initialize agent with fresh data
 root_agent = Agent(
     model='ollama_chat/llama3.2',
     name='jarvis',
@@ -63,3 +62,9 @@ root_agent = Agent(
         f"Use this data directly to answer the user accurately."
     ),
 )
+
+# 5. ACTUALLY EXECUTE THE AGENT
+# If using ADK's built-in query method:
+response = root_agent.run("What is the current weather in London and what should I wear?")
+print("\n--- Jarvis Response ---")
+print(response)
